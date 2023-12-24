@@ -1,12 +1,15 @@
 import './App.css';
+
+import Display from './DisplayComponent/display';
+import Keypad from './KeypadComponent/keypad';
+
 import { useState } from 'react';
 
 function App() {
 
   const [ numericalString, setNumericalString ] = useState('');
 
-  function handleClick(event) {
-    let value = event.target.value;
+  function onButtonPress(value){
     switch(value){
       case '=':
         let ans;
@@ -19,10 +22,10 @@ function App() {
           setNumericalString(ans.toString());
         }
         break;
-      case 'delete':
+      case 'Delete':
         setNumericalString(numericalString.substring(0, numericalString.length-1));
         break;
-      case 'clear':
+      case 'Clear':
         setNumericalString('');
         break;
       default:
@@ -33,40 +36,8 @@ function App() {
   return (
     <>
       <h1>Calculator App</h1>
-      {/** Calculation Screen */}
-      <input type="text" readOnly value={numericalString}/>
-      
-      {/** Number Pad */}
-      <div>
-        <button onClick={event => handleClick(event)} value={9}>9</button>
-        <button onClick={event => handleClick(event)} value={8}>8</button>
-        <button onClick={event => handleClick(event)} value={7}>7</button>
-      </div>
-      <div>
-        <button onClick={event => handleClick(event)} value={6}>6</button>
-        <button onClick={event => handleClick(event)} value={5}>5</button>
-        <button onClick={event => handleClick(event)} value={4}>4</button>
-      </div>
-      <div>
-        <button onClick={event => handleClick(event)} value={3}>3</button>
-        <button onClick={event => handleClick(event)} value={2}>2</button>
-        <button onClick={event => handleClick(event)} value={1}>1</button>
-      </div>
-      <div>
-        <button onClick={event => handleClick(event)} value={'.'}>.</button>
-        <button onClick={event => handleClick(event)} value={0}>0</button>
-      </div>
-      <div>
-        <button onClick={event => handleClick(event)} value={'+'}>+</button>
-        <button onClick={event => handleClick(event)} value={'-'}>-</button>
-        <button onClick={event => handleClick(event)} value={'*'}>*</button>
-        <button onClick={event => handleClick(event)} value={'/'}>/</button>
-      </div>
-      <div>
-        <button onClick={event => handleClick(event)} value={'='}>=</button>
-        <button onClick={event => handleClick(event)} value={'delete'}>Delete</button>
-        <button onClick={event => handleClick(event)} value={'clear'}>Clear</button>
-      </div>
+      <Display expression={numericalString}/>
+      <Keypad handleClick={onButtonPress}/>
     </>
   );
 }
