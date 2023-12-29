@@ -3,7 +3,7 @@ import './display.css';
 function Display({expression}){
     return(
         <>
-        <input type="text" readOnly value={expression}/>
+        <input className='input-design' type="text" readOnly value={expression}/>
         </>
     )
 }

@@ -1,0 +1,36 @@
+.button {
+    border: none;
+    cursor: pointer;
+    margin: 0;
+    color: #FDFEFE;
+    font-size: 40px;
+}
+
+.dark-background {
+    background: #212121;
+}
+
+.numbers {
+    padding: 30px;
+}
+
+.grey-background {
+    background: #616161;
+}
+
+.operators {
+    padding: 30px 40px;
+}
+
+.result {
+    background: #FF5722;
+}
+
+.delete-clear {
+    padding: 20px;
+    font-size: 40px;
+}
+
+.add-function {
+    background: #9E9E9E;
+}

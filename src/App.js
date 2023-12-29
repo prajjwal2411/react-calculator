@@ -35,9 +35,15 @@ function App() {
 
   return (
     <>
-      <h1>Calculator App</h1>
-      <Display expression={numericalString}/>
-      <Keypad handleClick={onButtonPress}/>
+      <div className='container d-flex align-items-center'>
+        <div className='header'>
+          <h1>Calculator</h1>
+        </div>
+        <div className='body'>
+          <Display expression={numericalString}/>
+          <Keypad handleClick={onButtonPress}/>
+        </div>
+      </div>
     </>
   );
 }
